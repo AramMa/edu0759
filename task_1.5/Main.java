@@ -8,9 +8,12 @@ TF = (9 / 5) * TC + 32
 на вход подается значение 41.
 Пример вывода:
 105.8 */
-
+import java.util.Scanner;
 public class Main {
+
     public static void main(String[] args) {
-       // Ваш код
+       Scanner scan = new Scanner(System.in);
+       float a = scan.nextInt();
+       System.out.println(a*9/5+32);
     }
 }
