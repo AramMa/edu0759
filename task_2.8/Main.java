@@ -4,7 +4,12 @@
 
 public class Main {
     public static void main(String[] args) {
-        //напишите тут ваш код
+        int [] numbers = {2, 3, 4, 5};
+        int value = 1;
+        for (int i = 0; i < numbers.length; i++){
+             value = value * numbers[i];
+        }
+        System.out.println(value);
 
     }
 }

@@ -4,7 +4,13 @@
 
 public class Main {
     public static void main(String[] args) {
-        //напишите тут ваш код
-
+        int [] numbers = {2,-3,0,7,1,4,-5,17};
+        int value = 0;
+        int result = 0;
+        for (int i = 0; value < 10; i++){
+            value = value + numbers[i];
+            result = 1 + i;
+        }
+        System.out.println("Количество элементов, которые нужно сложить: " + result);
     }
 }

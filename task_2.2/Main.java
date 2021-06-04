@@ -5,8 +5,13 @@
 4 8 12 16 ...
 ... */
 public class Main {
-    public static void main(String[] args) {
-        //напишите тут ваш код
 
+    public static void main(String[] args) {
+            for(int x = 1; x < 11; x++){
+                for(int y = 1; y < 11; y++){
+                    System.out.print(x * y + "  ");
+                }
+                System.out.println("");
+            }
     }
 }
