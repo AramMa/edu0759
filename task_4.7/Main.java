@@ -15,11 +15,15 @@ public class Main {
 }
 
 interface Animal {
-    Color getColor();
+    void getColor();
 }
     
-class Fox {
+class Fox implements Animal {
     public String getName() {
         return "Fox";
+    }
+
+    @Override
+    public void getColor() {
     }
 }

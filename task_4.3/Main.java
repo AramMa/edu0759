@@ -16,6 +16,7 @@
 public class Main {
     public static void main(String[] args) {
 
+
     }
 }
 
@@ -28,6 +29,32 @@ class Cat {
     }
 
     public boolean fight(Cat anotherCat) {
-        //напишите тут ваш код
+        int cat1win = 0;
+        int cat2win = 0;
+        if (this.age == anotherCat.age) {
+            cat1win++;
+        } else {
+            if (this.age > anotherCat.age)
+                cat1win++;
+            else cat2win++;
+        }
+        if (this.weight == anotherCat.weight) {
+            cat1win++;
+        } else {
+            if (this.weight > anotherCat.weight)
+                cat1win++;
+            else cat2win++;
+        }
+        if (this.strength == anotherCat.strength) {
+            cat1win++;
+        } else {
+            if (this.strength > anotherCat.strength)
+                cat1win++;
+            else cat2win++;
+        }
+        if (cat1win > cat2win)
+            return true;
+        else return false;
     }
 }
+

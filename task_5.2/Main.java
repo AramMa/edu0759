@@ -31,16 +31,16 @@ public class Main {
             if (family.isEmpty()) {
                 break;
             }
-
             list.add(family);
         }
 
-        // Read the house number
-        int houseNumber = scanner.nextInt();
-
-        if (0 <= houseNumber && houseNumber < list.size()) {
-            String familyName = list.get(houseNumber);
-            System.out.println(familyName);
+        String citySearch = scanner.nextLine();
+        for (String string: list) {
+            if (string.contains("Иван")) {
+                System.out.println(string);
+            }
         }
+        System.out.println(list);
     }
 }
+
