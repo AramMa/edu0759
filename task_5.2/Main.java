@@ -34,13 +34,12 @@ public class Main {
             list.add(family);
         }
 
-        String citySearch = scanner.nextLine();
-        for (String string: list) {
-            if (string.contains("Иван")) {
-                System.out.println(string);
-            }
+        String city = scanner.nextLine();
+        int i = list.indexOf(city);
+        if (0 <= i && i < list.size()) {
+           String familyName = list.get(++i);
+           System.out.println(familyName);
         }
-        System.out.println(list);
     }
 }
 
