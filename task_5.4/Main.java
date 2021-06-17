@@ -47,9 +47,9 @@ public class Main {
             list.add("13"); // я не понимаю почему на 51 строке всегда удаляется последний элемент массива и добавил костыль.
             for(String s : list) list2.add(Integer.valueOf(s));
             for (int z = 0; z < list2.size();) {
-                    if (list2.get(z) % 2 != 0){
-                        list2.remove(z);
-                }else z++;
+                    if (list2.get(z) % 2 == 0){
+                        z++;
+                }else list2.remove(z);
             }
             Collections.sort(list2);
             System.out.print(list2);
