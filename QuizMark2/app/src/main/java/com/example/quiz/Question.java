@@ -1,5 +1,7 @@
 package com.example.quiz;
 
+import java.io.Serializable;
+
 public class Question {
     private int question;
     private boolean answer;
@@ -9,11 +11,8 @@ public class Question {
         this.answer = answer;
     }
 
-    public int getQuestion() {
-        return question;
-    }
+    public int getQuestion() {return question;}
 
-    public boolean isAnswer() {
-        return answer;
-    }
+    public boolean isAnswer() {return answer;}
+
 }

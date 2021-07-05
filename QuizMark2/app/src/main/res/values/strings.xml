@@ -9,4 +9,5 @@
     <string name="no_btn">Нет</string>
     <string name="correct">Правильно</string>
     <string name="incorrect">Неправильно</string>
+    <string name="statistics">Статистика</string>
 </resources>
