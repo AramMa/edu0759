@@ -15,16 +15,16 @@ public class Server {
         ArrayList<Socket> clinetSokets = new ArrayList<>();
         ArrayList<User> users = new ArrayList<>();
         try {
-            ServerSocket serverSocket = new ServerSocket(8188); // Создаёи серверный сокет
+            ServerSocket serverSocket = new ServerSocket(8188);
             System.out.println("Сервер запущен");
-            while (true){ // бесконечный цикл для ожидания подключения клиентов
+            while (true){
                 System.out.println("Ожидаю подключения клиентов...");
-                Socket socket = serverSocket.accept(); // Ожидаем подключения клиента
+                Socket socket = serverSocket.accept();
                 User currentUser = new User(socket);
                 users.add(currentUser);
                 System.out.println("Клиент подключился");
-                DataInputStream in = new DataInputStream(socket.getInputStream()); // Поток ввода
-                DataOutputStream out = new DataOutputStream(socket.getOutputStream()); // Поток вывода
+                DataInputStream in = new DataInputStream(socket.getInputStream());
+                DataOutputStream out = new DataOutputStream(socket.getOutputStream());
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -36,37 +36,33 @@ public class Server {
                             System.out.println(currentUser.getUserName()+" добро пожаловать на сервер!");
                             out.writeUTF(currentUser.getUserName()+" добро пожаловать на сервер!");
                             while (true){
-                                request = in.readUTF(); // Принимает сообщение от клиента
+                                request = in.readUTF();
                                 System.out.println("Клиент прислал: "+request);
-                                for (User user: users) { // Перебираем клиентов которые подключенны в настоящий момент
+                                for (User user: users) {
                                     if(currentUser != user){
                                         DataOutputStream out = new DataOutputStream(user.getSocket().getOutputStream());
-                                        out.writeUTF(currentUser.getUserName()+": "+request); // Рассылает принятое сообщение всем клиентам
+                                        out.writeUTF(currentUser.getUserName()+": "+request);
                                     }
                                 }
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
-                            for (User user: users) { // Перебираем клиентов которые подключенны в настоящий момент
+                            for (User user: users) {
                                 if(currentUser != user){
                                     try {
                                         DataOutputStream out = new DataOutputStream(user.getSocket().getOutputStream());
-                                        out.writeUTF("Пользователь "+currentUser.getUserName()+" покинул чат"); // Рассылает принятое сообщение всем клиентам
+                                        out.writeUTF("Пользователь "+currentUser.getUserName()+" покинул чат");
                                     } catch (IOException ioException) {
                                         ioException.printStackTrace();
                                     }
                                 }
                             }
-                            users.remove(currentUser); // Удаление сокета, когда клиент отключился
+                            users.remove(currentUser);
                         }
                     }
                 });
                 thread.start();
             }
-
-
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
